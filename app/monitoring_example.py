@@ -22,12 +22,20 @@ This demonstrates how to create a background monitoring agent that:
 """
 
 import asyncio
+import os
+from pathlib import Path
 from typing import Optional
 
+from dotenv import load_dotenv
 from google.adk.agents import LlmAgent
 from google.adk.runners import Runner
 from google.adk.sessions import InMemorySessionService
 from google.genai import types
+
+ENV_PATH = Path(__file__).resolve().parents[1] / ".env"
+load_dotenv(ENV_PATH)
+
+MODEL_NAME = os.getenv("GEMINI_MODEL", "gemini-2.5-flash")
 
 
 class AgentMonitor:
@@ -136,7 +144,7 @@ async def example_1_passive_monitoring():
     # Create a simple agent
     agent = LlmAgent(
         name="demo_agent",
-        model="gemini-2.5-flash",
+        model=MODEL_NAME,
         instruction="You are a helpful assistant. Answer questions briefly.",
     )
 
@@ -207,7 +215,7 @@ async def example_2_inject_messages_via_runner():
     # Main agent
     agent = LlmAgent(
         name="main_agent",
-        model="gemini-2.5-flash",
+        model=MODEL_NAME,
         instruction="You are a coding assistant. Help users write code.",
     )
 
@@ -304,7 +312,7 @@ async def example_3_monitoring_agent_pattern():
 
     main_agent = LlmAgent(
         name="customer_service",
-        model="gemini-2.5-flash",
+        model=MODEL_NAME,
         instruction="You are a customer service agent. Help users with their issues.",
     )
 
@@ -315,7 +323,7 @@ async def example_3_monitoring_agent_pattern():
     # Monitoring agent (separate agent that analyzes the conversation)
     monitor_agent = LlmAgent(
         name="quality_monitor",
-        model="gemini-2.5-flash",
+        model=MODEL_NAME,
         instruction="""You are a quality assurance agent monitoring customer service conversations.
         Analyze the conversation for:
         - Customer satisfaction indicators
@@ -426,7 +434,7 @@ async def example_4_real_world_scenario():
 
     agent = LlmAgent(
         name="assistant",
-        model="gemini-2.5-flash",
+        model=MODEL_NAME,
         instruction="You are a helpful assistant. Be concise.",
     )
 
