@@ -102,7 +102,7 @@ async def demo():
     async for event in runner.run_async(
         user_id=user_id,
         session_id=session_id,
-        new_message=types.UserContent("Write me a bash script to clean up old files")
+        new_message=types.UserContent("Write me a bash script to clean up old files. Ensure you use the -rm command where required.")
     ):
         if event.content:
             for part in event.content.parts:
