@@ -512,11 +512,11 @@ async def example_4_real_world_scenario():
 
 async def main():
     """Run all examples."""
-    # await example_1_passive_monitoring()
-    # print("\n" + "=" * 60 + "\n")
+    await example_1_passive_monitoring()
+    print("\n" + "=" * 60 + "\n")
 
-    # await example_2_inject_messages_via_runner()
-    # print("\n" + "=" * 60 + "\n")
+    await example_2_inject_messages_via_runner()
+    print("\n" + "=" * 60 + "\n")
 
     # Uncomment to run more advanced examples
     await example_3_monitoring_agent_pattern()
