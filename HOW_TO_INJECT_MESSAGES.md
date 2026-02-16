@@ -104,8 +104,8 @@ From `session_service`:
 ## Files Created
 
 1. **[MONITORING_GUIDE.md](./MONITORING_GUIDE.md)** - Comprehensive patterns and examples
-2. **[monitoring_example.py](./monitoring_example.py)** - Full working examples (4 patterns)
-3. **[quick_demo.py](./quick_demo.py)** - Simple runnable demo
+2. **[monitoring_example.py](./app/monitoring_example.py)** - Full working examples (4 patterns)
+3. **[quick_demo.py](./app/quick_demo.py)** - Simple runnable demo
 
 Run the quick demo:
 ```bash
